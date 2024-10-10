@@ -10,14 +10,27 @@ $(document).ready(function () {
         }
     });
 });
-// resoonsive nav
+// Toggle responsive nav function
 function myFunction() {
     let navElement = document.querySelector("nav");
     navElement.classList.toggle("nav-show");
     let toggleBtnElement = document.querySelector(".toggle-btn");
     toggleBtnElement.classList.toggle("toggle-open");
-  }
-  document.querySelector(".toggle-btn").addEventListener("click", myFunction);
+}
+
+// Add event listener to the toggle button
+document.querySelector(".toggle-btn").addEventListener("click", myFunction);
+
+// Add event listener to the nav link
+const navLinks = document.querySelectorAll(".nav-link-item");
+navLinks.forEach(link => {
+    link.addEventListener("click", function() {
+        let navElement = document.querySelector("nav");
+        navElement.classList.remove("nav-show"); // Remove the nav-show class
+        let toggleBtnElement = document.querySelector(".toggle-btn");
+        toggleBtnElement.classList.remove("toggle-open"); // Optionally close the toggle button
+    });
+});
 
 // modal slider gallery js here 
 $(document).ready(function() {
